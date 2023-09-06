@@ -45,21 +45,6 @@
         <script src="data/PuestosdeGuardaparques_3.js"></script>
         <script src="data/VertederosyRellenos_4.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString') {
-              highlightLayer.setStyle({
-                color: '#20e2cf',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#20e2cf',
-                fillOpacity: 1
-              });
-            }
-        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         })
@@ -99,14 +84,6 @@
         layer_GoogleHybrid_0;
         map.addLayer(layer_GoogleHybrid_0);
         function pop_Municipios_1(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">OBJECTID_1</th>\
@@ -433,14 +410,6 @@
         bounds_group.addLayer(layer_Municipios_1);
         map.addLayer(layer_Municipios_1);
         function pop_ParquesdeRecreacin_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Id</th>\
@@ -515,14 +484,6 @@
         });
         bounds_group.addLayer(layer_ParquesdeRecreacin_2);
         function pop_PuestosdeGuardaparques_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Id</th>\
@@ -581,14 +542,6 @@
         });
         bounds_group.addLayer(layer_PuestosdeGuardaparques_3);
         function pop_VertederosyRellenos_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">OBJECTID</th>\
